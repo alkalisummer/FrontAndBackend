@@ -1,0 +1,23 @@
+{
+  "ecmaVersion": 5,
+  "plugins": {
+    "guess-types": {
+      
+    },
+    "outline": {
+      
+    },
+    "jquery-extension": {
+      
+    },
+    "jquery-ui1-12": {
+      
+    },
+    "jquery-mobile1.5": {
+      
+    }
+  },
+  "libs": [
+    "jquery"
+  ]
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+  .redcolor{color:red}
+   .bluecolor{color:blue}
+    .greencolor{color:green}
+     .whitecolor{color:white}
+      
+
+</style>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+ 
+ /*
+ https://www.w3schools.com/jquery/jquery_css_classes.asp
+ 기본에 사용자 정의로 만들어진 css 활용하는 함수 
+ addClass() - Adds one or more classes to the selected elements
+removeClass() - Removes one or more classes from the selected elements
+toggleClass() - Toggles between adding/removing classes from the selected elements
+css() - Sets or returns the style attribute(속성을 만들어서 추가)
+ */
+$(function(){
+	$('td:contains("홍길동")').addClass('redcolor');
+	// 기존에 존재하는 css 의 이름을 추가하는 방식 
+	$('td:contains("홍길동")').siblings().addClass('bluecolor')
+	.parent()
+	.find('td:eq(0)') //필터 함수
+	.addClass('greencolor');
+	
+	
+	//이벤트 
+	//$('#btnclick').on(click,function(body){});
+   	//또는 on({click:function...})
+	$('#btnclick').on('click',function(){
+		
+		alert("click");
+		
+	});
+   $('#btnclick').on('mouseover',function(){
+		
+        document.getElementById('btnclick').style.backgroundColor='red';
+        
+		
+	});
+   $('#btnclick').on('mouseout',function(){
+		
+	   document.getElementById('btnclick').style.backgroundColor='white';
+		
+	});
+   	
+   
+   //btnclick2 라는 id를 가진 div 를클릭하면 
+   // btnclick 라는 id 를 가진 div 태그에 click 이벤트를 off 시키세요 
+   
+   
+   $('#btnclick2').click(function(){
+		
+	  $('#btnclick').off('click');
+		
+	});
+  
+   $('#stylediv').on(
+	   {
+		      mouseover:function(){$('#stylediv').addClass('greencolor')},
+		      mouseout:function(){
+		    	  $('#stylediv').removeClass('greencolor');
+		    	  $('#stylediv').addClass('bluecolor');
+		    	  
+		      }
+		   
+		   
+	   }	   
+   
+   
+   
+   );
+   
+   
+   
+   
+   	
+});
+
+</script>
+</head>
+<body>
+<div>
+		<ul>
+			<li>사과</li>
+			<li>배</li>
+			<li>수박</li>
+		</ul>
+	</div>
+		<div>
+		<ul>
+			<li>사과2</li>
+			<li>배2</li>
+			<li>수박2</li>
+		</ul>
+	</div>
+	<input type="text" value="AAA">
+	<input type="text" value="BBB">
+	<input type="text" value="CCC">
+	<input type="password">
+	<input type="radio">
+	<input type="file">
+	<hr>
+	<table>
+		<tr>
+			<td>이름</td>
+			<td>나이</td>
+			<td>취미</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>50</td>
+			<td>훔치기</td>
+		</tr>
+		<tr>
+			<td>이순신</td>
+			<td>10</td>
+			<td>싸움</td>
+		</tr>
+		<tr>
+			<td>여러분</td>
+			<td>20</td>
+			<td>먹기</td>
+		</tr>
+	</table>
+	<hr>
+	<select>
+		<option>농구</option>
+		<option>축구</option>
+		<option>야구</option>
+		<option>배구</option>
+	</select>
+	<hr>
+	<h3>이벤트</h3>
+	<a href = "http://www.naver.com">네이버 바로가기</a>
+	<hr>
+	<div id = "btnclick">click</div>
+	<div id = "btnclick2">click2</div>
+	<div id = "stylediv">스타일 적용</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+//$(document).ready(function(){});
+
+// 일반 자바스크립트 함수 안에서 jquery 사용 가능 
+
+function javascriptFunc(){
+	var arrayobj=[];
+	$('table > tbody > tr').each(function(){ //function(index, elements)
+		//console.log(this);
+		//  console.log($(this).children().eq(0).text());
+		//  console.log($(this).children().eq(1).text());
+		//  console.log($(this).children().eq(2).text());
+	
+		arrayobj.push(
+		   {
+			   grade:$(this).children().eq(0).text(),	
+			   name:$(this).children().eq(1).text(),
+			   number:$(this).children().eq(2).text()
+			}
+		);   
+	});
+     
+     //2.javascript 구문 (일반 for) 사용해서 arrayobj값을 출력하세요 
+       // 출력한 결과를 id = display 인 div 태그안에 append하세요.
+       //101th, 홍길동 ,10 
+        
+       var div = document.querySelector("#display");
+       
+       
+      for(var i =0; i<arrayobj.length;i++ ){
+    	  div.append(arrayobj[i].grade+"/");
+    	  div.append(arrayobj[i].name+"/");
+    	  div.append(arrayobj[i].number);
+    	 div.after("<br>");
+    	
+    	 
+      }
+       
+   
+       
+       
+     
+       
+       //3. jquery $.each(function(){}) tkdydgotj array obj 값을 출력하세요 
+        // 출력한결과를 id = display2 인 div 태그 안에 append 하세요 
+     
+     
+	
+	//1. arrayobj 배열(Array)에 아래처럼 객체추가하세요
+	//[
+	//{grade:101th,name:홍길동,number:10}
+	//{grade:102th,name:김유신,number:20}
+	//{grade:103th,name:유관순,number:30}
+	//]
+   
+	
+	
+};
+
+
+
+</script>
+</head>
+<body>
+<table border="1">
+  <thead>
+   <tr><td>기수</td><td>이름</td><td>번호</td></tr>
+  </thead>
+  <tbody>
+  <tr><td>101기</td><td>홍길동</td><td>10</td></tr>
+  <tr><td>102기</td><td>김유신</td><td>20</td></tr>
+  <tr><td>103기</td><td>유관순</td><td>30</td></tr>
+  
+  
+  </tbody>   
+</table>
+<p>
+  <button onclick="javascriptFunc()"></button>
+</p>
+<div id="display"></div>
+<div id="display2"></div>
+
+
+
+</body>
+</html>

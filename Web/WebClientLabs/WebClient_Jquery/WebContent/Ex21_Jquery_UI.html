@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/Sunny/jquery-ui.css">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ #droppable{
+     position:absoulte;
+     left:250px;
+     top:250px;
+     width:400px;
+     height:450px;
+     border:1px solid red;
+ }
+</style>
+<script type="text/javascript">
+
+$(function(){
+	$('#draggable').draggable(
+	{
+		opacity:0.4
+	}		
+	
+	);
+	
+	$('#droppable').droppable(
+	   {
+		   accept:'#draggable',
+		   drop:function(){
+			   $(this).text("이미지 드랍 성공");
+			   
+		   }
+	   }		
+	
+	);
+});
+ 
+
+
+</script>
+</head>
+<body>
+ <img src ="images/subway.png" id="draggable">
+ <div id ="droppable">
+ 
+ </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form(Input Tag)</title>
+</head>
+<body>
+<!-- 
+ input 태그
+ 1. id = " userid" >> id속성은 (ui) css, javascript 에 유효성 작업, ui 변경 작업 
+ 2, name = "userid" >> name 속성은 데이터를 서버로 보낼대 변수 역할
+                    >> POINT: name 속성이 없으면 서버는 데이터를 받을수 없다 
+                     >>login.jsp? userid=kkk&pwd =1004 
+
+
+ -->
+     <form action = "">
+         <fieldset>
+            <legend>Text : Password </legend>
+            Text: <input type = "text" name = "userid" id="userid"><br>
+            password: <input type = "password" name = "pwd" id = "pwd" maxlength = "5"><br>
+            <hr>
+            Text2: <input type = "text" name= "data" maxlength ="10" size = "70px" value ="아이디를 입력해">
+            <hr>
+            readonly(읽기전용, 서버로 데이터 전송가)
+            <input type = "text" name = "data2" value="hong" readonly>
+            <br>
+            disabled(비활성화, 서버로 데이터 전송불가)
+            <input type = "text" name= "data3" value="kim" disabled>
+         </fieldset>
+         <fieldset>
+         <legend>체크박스(다중선택)</legend>
+         농구:<input type = "checkbox" name = "sports_1" value="A" checked>
+         야구:<input type = "checkbox" name = "sports_2" value="B" checked>
+         축구:<input type = "checkbox" name = "sports_3" value="C" >
+         </fieldset>
+         <!-- 
+         서버로 전송 : register.jsp?sports_1 = A&sports_2 = B&sports_3=C
+         JSP 코드에서 
+         String str = request.getParameter("sports_1");
+          str 변수에는: "A"
+          String str2 = request.getParameter("sports_2");
+           String str2 = request.getParameter("sports_3");
+          
+          질문)
+         농구:<input type = "checkbox" name = "sports" value="A" checked>
+         야구:<input type = "checkbox" name = "sports" value="B" checked>
+         축구:<input type = "checkbox" name = "sports" value="C" >
+         
+        서버로 전송: register.jsp?sports = A&sports= B&sports=C
+        
+        문제 서버에서 받기 
+         String[] strarr =  request.getParameter("sports");
+         strarr[0] = "A"
+         strarr[1] = "B"
+         strarr[2] = "C"
+         
+         
+         
+         
+          -->
+           <fieldset>
+           <legend>select 태그(단일선택:년,월,일)</legend>
+           <select name = "year">
+            <option value="2019"> 2019년</option>
+             <option value="2018" selected> 2018년</option>
+             <option value="2017"> 2017년</option>
+           
+           
+           </select>
+           <!-- register.jsp? year = 2018 -->
+           
+           
+            </fieldset>
+         
+        <fieldset>
+           <legend>select 태그(다중선택:checkbox 처럼)</legend>
+           당신이 좋아하는 과목은:
+           <select name = "items" multiple>
+            <option value="01">Java</option>
+            <option value="02" selected> Oracle</option>
+            <option value="03"> HTML</option>
+           
+           
+           </select>
+           <!-- register.jsp? year = 2018 -->
+           
+           
+            </fieldset>
+            <fieldset>
+            <legend>라디오 버튼(단일선택: 성별(남,여))</legend>
+            남<input type = "radio" name="gender" value="1">
+            여<input type = "radio" name="gender" value="2" checked>
+            <!-- register.jsp?gender =1  -->
+             </fieldset>
+            <fieldset>
+             <legend> 기타 등등 </legend>
+             1.화면에 출력이 안되요(소스는 가지고 있어요)
+             <input type = "hidden" value = "1000" name = "hdata">
+             <br>
+             2.파일선택 
+             <input type = "file" name = "uploadingimage">
+             <br>
+             3.게시판 글쓰기(여러줄(row,cols))
+             <textarea rows="10" cols = "10" name = "content"></textarea>
+             입력데이터
+             <br>
+             4.각종 버튼들
+             <input type ="button" value = "눌러봐 " onclick = "alert('졸립다')">
+             <br>
+           이미지버튼(내부:submit)  <input type = "image" src = "images/img2.jpeg" height = "200" width ="200">
+             <br>
+             <input type = "submit" value = "전송">
+             <input type = "reset" value = "초기화">
+             
+             </fieldset>
+            
+            
+     
+     </form>
+
+</body>
+</html>

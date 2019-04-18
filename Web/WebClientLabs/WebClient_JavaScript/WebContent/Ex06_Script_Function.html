@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내장함수: 사용자 정의 함수</title>
+<script type="text/javascript">
+//java :public void print(){}
+// java: public String print(){return ""}
+//java: public int print(int num){return 100+ num;}
+
+//javascript
+// function 함수이름(){} >> void(x) , String return type(x)
+
+function callConfirm() { // 사용자 정의 함수 
+	if(window.confirm("작업내용")){ // 내장함수: confirm 
+		                          // 확인(true) 취소(false)
+		          window.alert("삭제합니다");
+		          
+		
+	}else {
+		alert("취소합니다");//alert 내장함수 
+	}
+	
+}
+function showPopup(){
+	/*
+	https://www.w3schools.com/Jsref/met_win_open.asp
+		Parameter Values 표 확인하기
+		window.open(URL, name, specs, replace)
+		**specs 부분이 브라우저 별로 적용여부가 다르기 때문에 
+		
+	     window.open()
+	     window.close() -> close the current widow 
+	     window.open(URL, name, specs, replace)
+	*/
+	
+	   window.open("Ex06_popup.html","zipcode","width =200, height =200");
+	
+	
+}
+function myFunction(){
+	var mywindow = window.open("Ex06_popup.html","zipcode","width =200, height =200");
+	//mywindow (open 되는 창)
+	
+    mywindow.document.write("<p>This is window</p>");
+	
+}
+// java: public String goUrlTime(String url){return "";}
+function goUrlTime(url){ // 함수는 parameter 가 타입을 갖지 않는다.(변수명)
+	window.setTimeout("location.href ='" +url+"'",3000);
+	//페이지 이동
+	// location.href ="http://www.daum.net"
+	
+}
+//javascript return...
+function myfun(a,b){
+	return a + b; 
+}
+
+var result = myfun(100,200);
+console.log(result);
+
+//익명함수(): 일회성(한번쓰고.. 재사용(x))
+changeColor= function(){
+	 window.document.bgColor="silver";
+	 window.document.fgColor="red";
+}
+
+</script>
+</head>
+<body>
+<h3>내장함수 사용자 정의 함수 사용하기 </h3>
+<button onclick = "callConfirm()"> 함수호출 </button>
+<br>
+<input type = "button" value = "팝업창"  onclick = "showPopup()">
+<br>
+<input type = "button" value = "팝업옵션"  onclick = "myFunction()">
+<br>
+<input type = "button" value = "주소이동"  onclick = "goUrlTime('http://www.daum.net')">
+<br>
+<input type = "button" value = "익명함수"  onclick = "changeColor()">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

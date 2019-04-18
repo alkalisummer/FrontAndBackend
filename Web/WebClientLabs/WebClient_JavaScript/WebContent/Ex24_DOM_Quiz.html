@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+ window.onload = function(){
+	 var myphotos = Array("images/1.jpeg",
+			              "images/2.jpeg",
+			              "images/3.jpeg",
+			              "images/4.jpeg"
+	 );
+	 console.log(myphotos[2]);
+	 
+	 var currImg = document.getElementById("imgs");
+	 console.log(currImg);
+	 
+	 
+	var pre = document.getElementById(prv);
+	var i = 0;
+  prv.onclick = function(){
+	  
+	   
+	   if(i == 0){
+		   i =3;
+	   }else{ i--;}
+	  
+	   console.log(myphotos[i]);
+	   console.log("images/"+myphotos[i]);
+	  currImg.setAttribute("src",myphotos[i]);
+	 
+
+	  
+  } 
+  
+  next.onclick = function(){
+	  
+	   
+	   if(i == 3){
+		   i =0;
+	   }else{ i++;}
+	  
+	   console.log(myphotos[i]);
+	   console.log("images/"+myphotos[i]);
+	  currImg.setAttribute("src",myphotos[i]);
+	 
+
+	  
+ } 
+	
+	 
+	 
+ }
+ 
+ 
+ 
+ 
+</script>
+</head>
+<body>
+<h3>DOM 슬라이드</h3>
+<img src="images/1.jpeg" id="imgs" width="200" height="200" alt = "이미지">
+<hr>
+<a href = "#" id= "prv">이전</a> || <a href = "#" id= "next">다음</a>
+
+
+</body>
+</html>

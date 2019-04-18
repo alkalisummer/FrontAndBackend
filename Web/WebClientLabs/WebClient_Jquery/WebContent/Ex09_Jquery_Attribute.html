@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	     $('#btn0').click(function(){
+	    	 
+	    	alert($('#w3').attr('href')); // getter  
+	     });
+	     
+	     //$('#w3s').attr("href","http://www.daum.net");
+	     //$('#w3s').attr("title","jquery study");
+	     
+	   
+	     //POINT: jquery 함수가 여러개의 파라미터를 처리할때 Json 객체를 받도록 설계
+	  $('#btn1').click(function(){
+		  
+		   $('#w3s').attr(
+			{
+				"href":"http://www.daum.net",
+				"title":"jquery study"
+			}	   
+		   
+		   ) 
+		  
+	  });
+	
+});
+</script>
+</head>
+<body>
+  <p>
+  <a href ="http://www.naver.com" id = "w3">naver.com</a>
+  </p>
+  <button id= "btn0">show button</button>
+  <br>
+  <a title="w3popup" href ="http://www.naver.com" id = "w3s">www.w3schools.com</a>
+  <br>
+    <button id= "btn1">show button</button>
+</body>
+</html>

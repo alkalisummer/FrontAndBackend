@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  <title>Team bit3 </title>
+  <style>
+    .col-1 {
+      width: 8.33%;
+    }
+
+    .col-2 {
+      width: 16.66%;
+    }
+
+    .col-3 {
+      width: 25%;
+    }
+
+    .col-4 {
+      width: 33.33%;
+    }
+
+    .col-5 {
+      width: 41.66%;
+    }
+
+    .col-6 {
+      width: 50%;
+    }
+
+    .col-7 {
+      width: 58.33%;
+    }
+
+    .col-8 {
+      width: 66.66%;
+    }
+
+    .col-9 {
+      width: 75%;
+    }
+
+    .col-10 {
+      width: 83.33%;
+    }
+
+    .col-11 {
+      width: 91.66%;
+    }
+
+    .col-12 {
+      width: 100%;
+    }
+
+    .container {
+
+      margin: 0 auto;
+      height: 550px;
+
+      background-color: white;
+
+    }
+
+
+    .header {
+      text-align: center;
+      padding: 15px;
+      background-color: #e6e6fa;
+      color: #836BB6;
+      margin: 0;
+    }
+
+
+    .article-a {
+
+      float: left;
+      width: 40%;
+      height: 40%;
+      background-color: white;
+      padding: 10px;
+      color: #201F20;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    .article-b {
+      float: right;
+      width: 40%;
+      height: 40%;
+      background-color: white;
+      padding: 10px;
+      color: #201F20;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 10px;
+
+    }
+
+
+    .footer {
+      clear: both;
+      padding: 10px;
+      background-color: #e6e6fa;
+      color: white;
+
+
+    }
+
+    .footer h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body style="background-color: white;">
+  <ul class="nav nav-pills nav justify-content-end" style="background-color: #483d8b;">
+    <li class="nav-item">
+      <a class="nav-link active" href="http://192.168.0.80:8080/WebClient/Squadfree/index.html"
+        style="color:white">Team Bit3</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://192.168.0.64:8090/WebClient_JavaScript/Practice.html"
+        target="_blank" style="color:white">Seong Yoon</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://192.168.0.75:8090/practice/Boot.html" style="color:white">Ho
+        Won</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://192.168.0.12:8090/WebClient/team3_homepage.html"
+        style="color:white">Jong Seok</a>
+    </li>
+  </ul>
+  <div class="header">
+    <p>
+      <h1> Team Bit 3 </h1>
+    </p>
+  </div>
+  <h4 style="margin-top:15px; margin-bottom:0; color:#000080"> &nbsp;&nbsp;&nbsp;&nbsp;Member</h4>
+  <hr>
+
+  <div class="container col-9">
+
+    <div class="article-a">
+
+      <img src="images/oval.png" style="width:120px; height:120px;">
+      <h4 class="card-title">Ki Hoon</h4>
+      <p class="card-text">Team Bit3</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        See Profile
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color:#708090">
+              <h4 class="modal-title" style="color:white">Kang Ki Hoon</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <img src="images/img2.jpeg" style="width:150px; height:120px;">
+              <br>
+              <p>
+                <h4>한조 대기중.</h4>
+              </p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="article-b">
+      <img src="images/circle.png" style="width:120px; height:120px;">
+      <h4 class="card-title">Seong Yoon</h4>
+      <p class="card-text">Team Bit3</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+        See Profile
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal2">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color:#708090">
+              <h4 class="modal-title" style="color:white">Jung Seong Yoon</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <img src="images/conan.jpeg" style="width:130px; height:130px;">
+              <br>
+              <p>
+                <h4>내이름은 코난. 탐정이죠. </h4>
+              </p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="article-a">
+      <img src="images/circle.png" style="width:120px; height:120px;">
+      <h4 class="card-title">Ho Won</h4>
+      <p class="card-text">Team Bit3</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">
+        See Profile
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal3">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color:#708090">
+              <h4 class="modal-title" style="color:white">Kwak Ho Won</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <img src="images/gongbu.jpeg" style="width:170px; height:170px;">
+              <br>
+              <p>
+                <h4>비겁한 공부맨</h4>
+              </p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="article-b">
+      <img src="images/oval.png" style="width:120px; height:120px;">
+      <h4 class="card-title">Jong Seok</h4>
+      <p class="card-text">Team Bit3</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+        See Profile
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal4">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color:#708090">
+              <h4 class="modal-title" style="color:white">Yoon Jong Seok</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <img src="images/light.jpeg" style="width:150px; height:150px;">
+              <br>
+              <p>
+                <h4>그저 빛</h4>
+              </p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="col-12">
+    <div class="footer">
+      <h3>Team Bit3 copyright </h3>
+    </div>
+  </div>
+
+</body>
+
+</html>

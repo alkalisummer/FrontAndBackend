@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	 1. XMLHttpRequest 객체 얻기
+	 2. onreadystatechange 이벤트 핸들러 구현
+	 3. 요청 정보 ( open() )
+	 4. 요청 보내기 (send() )
+	 5. 응답 처리 (Text(JSON,script,text,html), xml )
+	 */
+
+	var httpReq = null;
+	function getInstance() {
+		if (window.XMLHttpRequest) {
+			httpReq = new XMLHttpRequest();
+		} else if (window.ActiveXObject) { // IE6 
+			httpReq = new ActiveXObject("Msxml12.XMLHTTP")
+		} else {
+			throw new Error("Ajax를 지원하지 않습니다");
+		}
+		return httpReq;
+	}
+
+	function handlerStateChange() {
+		if(httpReq.readyState == 4){ //서버에서 응답이 왔다면
+			   if(httpReq.status >= 200 && httpReq.status <300){
+				   //서버에서 받은 데이터를 가공(point)
+				   //Text(html, text, script,json)
+				   //xml(xml)
+				   var TempArray = new Array();
+				   TempArray = httpReq.responseText.split(",") //EX) AA, BB, CC
+				   
+				   var printdata= "";
+				   for(var i = 0; i<TempArray.length;i++){
+					   printdata+= TempArray[i].trim()+"<br>";
+					   
+				   }
+				   var view = document.getElementById("div_view");
+				   view.innerHTML = printdata;
+			   }
+		 }
+	}
+
+	function sendData() {
+		httpReq = getInstance();
+		httpReq.onreadystatechange = handlerStateChange; // 주의 handlerStateChange 별도의 이벤트가 함수를 가질때는 괄호를 붙이지 않음 
+		 var key = document.getElementById("select_menu").selectedIndex;
+		// key변수: 0 or 1 or 2 을 가져옴 
+		
+		
+		httpReq.open("POST","Ex03_Server_param.jsp?no="+key); // form 구성 
+		//http://localhost:8090/WebClient_JavaScript_Ajax/Ex03_Server_param.jsp?no=1
+		httpReq.send('');
+	}
+</script>
+</head>
+<body>
+	<h3>Ajax(xmlHttpRequest 객체 사용)</h3>
+	<div style="background-color:gray;width:500px;text-align: center">
+	   <hr style="color:red">
+	   <select id="select_menu" onchange="sendData()">
+	      <option>0번 인덱스</option>
+	      <option>1번 인덱스</option>
+	      <option>2번 인덱스</option>
+	   
+	   </select>
+	   <br>
+	<span id="div_view"></span>
+	</div>
+	
+</body>
+</html>

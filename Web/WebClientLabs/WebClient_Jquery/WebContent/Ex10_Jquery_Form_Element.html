@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- 
+https://api.jquery.com/category/selectors/form-selectors/
+ -->
+<script type="text/javascript">
+  $(function(){
+	  
+	  $('#txtname').val('hong');
+	  //1.radio 의  기본값을 설정하고 싶어요 .(checked)
+	   //$('input[type=radio]')
+	   //value 값이 F 인녀석을 checked하고 싶다 
+	   $('input:radio').val(['F']); // radio에서 값을 쓴다는것은 checked 와 같다. 
+	   
+	   console.log($('input:radio').val()); //순서대로 먼저 있는 radio의 value 값을 가져옴 
+	   console.log($('input:checked').val());//선택된 value값을 가져옴 
+	   
+	   //위 실습은 (radio) 여러개 있으면 안되요(여러개 >> id 또는 name 속성을 부여해서 쓰면됨)
+	   console.log($('input:radio[name=gender]:checked').val());
+	   
+	   //select 태그 단일값
+	   //단일값 -> &('#isf').val();선택된 option 태그의 value 값  getter
+	   // &('#isf').val('oracle') setter
+	   
+	   // 단 multiple 속성이 있으면 : 다중값 
+	   // 페이지가 로딩되고 나면 java , oracle 이라 하는 option 다중선택 
+	   
+	   $('#isf').val(['java','oracle']); //다중값 선택하기
+	   
+	   $('#btnok').click(function(){
+		   var msg = "";
+		   msg += $('#txtname').val() + "/" ;
+		   msg += $('input:radio[name=gender]:checked').val();
+		   console.log("선택값:"+msg);
+		   
+		   //단일값
+		   
+		   //다중값
+		   var selecttag = "";
+		    selecttag = $('#isf').val(); //다중값 return array ;
+		    
+		    console.log(selecttag);
+		    
+		    for(var index in selecttag){
+		    	console.log("value:" + selecttag[index]);
+		    }
+		    
+		   
+	   });
+	   
+	        //$('input:submit')
+	        //$('input[type = submit]')
+	        if($('#myform').children().is('input:submit')){
+	        	//너의 자식요소로 submit 태그가 있니 ? 
+	        		 alert("true");
+	        }else{
+	        	 alert("false");
+	        }
+	   
+  });
+  
+
+</script>
+</head>
+<body>
+   <form>
+       Textbox:<input type= "text" id="txtname">
+       <br>
+       
+       RadioButton: checked 속성 
+       <input type = "radio" name="gender" value = "M">남 
+       <input type = "radio" name="gender" value = "F">여
+       <br>
+       select tag(option)
+       <select id ="isf" multiple="multiple" size="3">
+         <option value="java">자바</option>
+         <option value="jsp">웹</option>
+         <option value="oracle">오라클</option>
+       
+       </select>
+      <br>
+      <input type = "button" value = "확인" id="btnok">
+      <br>
+      <div id = "myform">
+      submit button :<input type="submit" value="전송">
+      
+      </div>
+       
+   </form>
+   
+
+
+</body>
+</html>

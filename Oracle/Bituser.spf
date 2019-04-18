@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>sampleDB</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-1249836986061392507</string>
+			<key>name</key>
+			<string>BITUSER</string>
+			<key>port</key>
+			<integer>3306</integer>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGJSZYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJX
+			TlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAF
+			gAdUdHlwZVRyb3dzXxAdU2VsZWN0aW9uRGV0YWlsVHlwZU5TSW5k
+			ZXhTZXTSFwsYGVxOU1JhbmdlQ291bnQQAIAG0hscHR5aJGNsYXNz
+			bmFtZVgkY2xhc3Nlc1pOU0luZGV4U2V0oh8gWk5TSW5kZXhTZXRY
+			TlNPYmplY3TSGxwiI1xOU0RpY3Rpb25hcnmiIiRYTlNPYmplY3Rf
+			EA9OU0tleWVkQXJjaGl2ZXLRJyhUZGF0YYABAAgAEQAaACMALQAy
+			ADcAQABGAE0AVQBgAGcAagBsAG4AcQBzAHUAdwB8AIEAoQCmALMA
+			tQC3ALwAxwDQANsA3gDpAPIA9wEEAQcBEAEiASUBKgAAAAAAAAIB
+			AAAAAAAAACkAAAAAAAAAAAAAAAAAAAEs
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {694, 448}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>select *from emp;</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>139</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>select *from emp</string>
+		<string>select * from emp</string>
+		<string>select*from emp</string>
+		<string>CREATE TABLE EMP (EMPNO INT NOT NULL, ENAME VARCHAR(10), JOB VARCHAR(9), MGR INT , HIREDATE DATE, SAL INT, COMM INT, DEPTNO INT );
+-- alter session set nls_date_format='YYYY-MM-DD HH24:MI:SS';
+ INSERT INTO EMP
+VALUES (7369, 'SMITH', 'CLERK', 7902, '1980-12-17', 800, NULL, 20);
+INSERT INTO EMP
+VALUES (7499, 'ALLEN', 'SALESMAN', 7698, '1981-02-20', 1600, 300, 30);
+INSERT INTO EMP
+VALUES (7521, 'WARD', 'SALESMAN', 7698, '1981-02-22', 1250, 200, 30);
+INSERT INTO EMP
+VALUES (7566, 'JONES', 'MANAGER', 7839, '1981-04-02', 2975, 30, 20);
+INSERT INTO EMP
+VALUES (7654, 'MARTIN', 'SALESMAN', 7698, '1981-09-28', 1250, 300, 30);
+INSERT INTO EMP
+VALUES (7698, 'BLAKE', 'MANAGER', 7839, '1981-04-01', 2850, NULL, 30);
+INSERT INTO EMP
+VALUES (7782, 'CLARK', 'MANAGER', 7839, '1981-06-01', 2450, NULL, 10);
+INSERT INTO EMP
+VALUES (7788, 'SCOTT', 'ANALYST', 7566, '1982-10-09', 3000, NULL, 20);
+INSERT INTO EMP
+VALUES (7839, 'KING', 'PRESIDENT', NULL, '1981-11-17', 5000, 3500, 10);
+INSERT INTO EMP
+VALUES (7844, 'TURNER', 'SALESMAN', 7698, '1981-09-08', 1500, 0, 30);
+INSERT INTO EMP
+VALUES (7876, 'ADAMS', 'CLERK', 7788, '1983-01-12', 1100, NULL, 20);
+INSERT INTO EMP
+VALUES (7900, 'JAMES', 'CLERK', 7698, '1981-10-03', 950, NULL, 30);
+INSERT INTO EMP
+VALUES (7902, 'FORD', 'ANALYST', 7566, '1981-10-3', 3000, NULL, 20);
+INSERT INTO EMP
+VALUES (7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300, NULL, 10);
+COMMIT;
+CREATE TABLE DEPT (DEPTNO INT, DNAME VARCHAR(14), LOC VARCHAR(13) );
+INSERT INTO DEPT
+VALUES (10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO DEPT
+VALUES (20, 'RESEARCH', 'DALLAS');
+INSERT INTO DEPT
+VALUES (30, 'SALES', 'CHICAGO');
+INSERT INTO DEPT
+VALUES (40, 'OPERATIONS', 'BOSTON');
+COMMIT;
+CREATE TABLE SALGRADE ( GRADE INT, LOSAL INT, HISAL INT );
+INSERT INTO SALGRADE
+VALUES (1, 700, 1200);
+INSERT INTO SALGRADE
+VALUES (2, 1201, 1400);
+INSERT INTO SALGRADE
+VALUES (3, 1401, 2000);
+INSERT INTO SALGRADE
+VALUES (4, 2001, 3000);
+INSERT INTO SALGRADE
+VALUES (5, 3001, 9999);
+COMMIT</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.5-10.3.13-MariaDB</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

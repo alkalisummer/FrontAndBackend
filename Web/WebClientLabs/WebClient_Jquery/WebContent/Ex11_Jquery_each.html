@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+ /*
+ 
+    Java: for(String s : array or collection){}
+    javascript: for(var s in 배열(Array)){}
+                for(var index in Array){Array[index]}
+                for(var key in Object(json)){}
+    Jquery : each()문 
+    
+    jquery : 핵심(ajax 비동기 처리)
+    1.$(selector).each(function(){this});
+    2.$(selector).each(function(index){this});
+    3.$(selector).each(function(index, element){element});
+ 
+    
+     *selector 없는 each
+     $.each(selector,function(){this})
+     $.each(selector,function(index){this})
+     $.each(selector,function(index,element){element})
+     
+     차이점은 무엇? 
+     
+     
+ */
+     $(function(){
+    	  //1. $(selector).each(function(){this}) 
+    	  $('p').each(function(){
+    		  
+    		  console.log("this:"+$(this).text());
+    		  // this 는 p태그 
+    		  
+    	  });
+    	  //2. $(selector).each(function(index){this})
+    	   $('p').each(function(index){//p태그 갯수만큼 함수 호출 
+    		   console.log("index: "+ index);
+    		   console.log("index: "+ $(this).text());
+    		   //$(this).attr("id","param-"+index):
+    			//여러개의 속성을 한번에: {} json 
+    			$(this).attr(
+    			  
+    					   {
+    						   "id":"param-" + index,
+    						   "style": "color:red" //style="color:red"
+    						   
+    					   }
+    			);
+    			
+    	   });
+    	  
+    	   //3.$(selector).each(function(index, element){element});
+    	   //제일많이사용 ( 가장편한방식)
+    	   $('p').each(function(index,element){
+    		    console.log("index: "+index);
+    		    console.log("element: "+element+"/"+$(element).text());
+    		   
+    	   });
+    	     //응용학습 
+    	     
+    	     //javascript Array
+    	     //var arr = ['사과','배','수박']
+    	     //json object > var obj={}
+    	     //객체 배열 
+    	     //var arrobj = [{},{},{}];
+    	     
+    	     
+    	     var array = [
+    	    	         {"name":"naver","link":"www.naver.com"},
+    	    	         {"name":"daum","link":"www.daum.net"},
+    	    	         {"name":"bit","link":"www.bit.com"}
+    	    	 
+    	    	 
+    	    	 
+    	     ];
+    	    // 문제 
+    	    //name 값과 link 출력 
+    	    //element대상으로 쓰면 좋을듯 
+    	   // 3.$(selector).each(function(index, element){element});
+    	    //selector>> element, obj, array
+    	     $(array).each(function(index,obj){
+    	    	console.log("index:"+index);
+    	    	console.log("element:"+obj.name+"/"+obj.link);
+    	    	
+    	    	
+    	    	
+    	    });
+    	    
+    	    
+    	   // $.each(selector,function(index,element){element})
+    	   // 코드 안에 있는 객체나 배열에 쓰면 좋음 
+    	   $.each(array,function(index,obj){
+    		   
+    		console.log("index:"+index);
+   	    	console.log("element:"+obj.name+"/"+obj.link);
+   	    	
+    		   
+    	   })
+    	   
+    	   /*
+    	   $(selector).each(function(index, element){element}); >> body 안에 있는 태그정보에 쓰면 좋음 
+    	   $.each(selector,function(index,element){element}); >> script 내부 자원(배열;
+    	   
+    	   */
+    	  var board={
+    			     values:[
+    			    	   {"no":1, "title":'hello'},
+    			    	   {"no":2, "title":'world'},
+    			    	   {"no":3, "title":'korea'}
+    			    	 
+    			     ],
+    			     
+    			     search:"검색"
+   
+    	   };
+    	     
+    	   // $.each()문을 사용해서 no 값과 title값을 출력하세요 .
+    	   
+    	   
+    	      $.each(board.values,function(index,obj){
+    		   
+    		console.log("index:"+index);
+   	    	console.log("element:"+obj.no+"/"+obj.title);
+   	    	
+    		   
+    	   });
+    	   
+
+    	      $.each(board,function(key,value){
+    		   
+    		          console.log(typeof(value));
+   	               if(typeof(value)==="object"){
+   	            	   console.log("key:"+key);
+   	            	   $.each(value,function(index,obj){
+   	            		   console.log("index:" + index+"-"+obj.no+":"+obj.title)
+   	            	   });
+   	            	   
+   	            	   
+   	               }else{
+   	            	   console.log("key:"+key);
+   	            	console.log("text:"+value);
+   	            	   
+   	            	   
+   	               };
+   	               
+   	               
+   	    	
+    		   
+    	   });
+    	   
+    	   
+    	   
+    	   
+    	   
+    	// $.each()문을 사용해서 no,title, sarch  값을 출력하세요 .
+    	// 조건 처리(if...)
+    	   
+    	     /*  $.each(board,function(index,obj){
+       		   
+    	    		console.log("index:"+index);
+    	   	    	console.log("element:"+obj.values.no+"/"+obj.values.title);
+    	   	    	console.log(obj.search.val());
+    	    		   
+    	    	   }); */
+    	 
+     });
+</script>
+</head>
+<body>
+<p>java</p>
+<p>jsp</p>
+<p>oracle</p>
+<input type = "button" value = "click" id="btn">
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

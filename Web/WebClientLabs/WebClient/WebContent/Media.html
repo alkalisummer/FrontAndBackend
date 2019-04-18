@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동물 소리 공부하기</title>
+  <link rel="stylesheet" href="CSS/media.css">
+  <script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+function isFull() {
+	document.getElementById()
+}
+</script>
+</head>
+
+<body>
+  <header>
+    <h1>어떤 소리를 낼까요?</h1>
+    <p>마우스로 동물을 상자에 넣으면 소리가 나와요</p>
+  </header>
+  <div class="side">&nbsp;</div>
+  <aside>
+    <ul>
+      <li><img src="https://img.icons8.com/color/48/000000/pig.png" draggable="true" value="pig" ondragstart="drag(event)" id="drag1" ></li>
+      <li><img src="https://img.icons8.com/color/48/000000/bird.png" draggable="true" value="bird" ondragstart="drag(event)" id="drag2"></li>
+      <li><img src="https://img.icons8.com/color/48/000000/sheep.png" draggable="true" value="sheep" ondragstart="drag(event)" id="drag3"></li>
+      <li><img src="https://img.icons8.com/color/48/000000/cat.png" draggable="true" value="cat" ondragstart="drag(event)" id="drag4"></li>
+    </ul>
+  </aside>
+  <article>
+    <div id="animalBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <h2 id="animalName">고양이</h2>
+    <input id="replay" type="button" value="다시 듣기">
+    <audio src="wave.ogg" type="audio/ogg"></audio>
+  </article>
+  <div class="side">&nbsp;</div>
+  <footer>
+    <p>2019 비트캠프 3조 제작</p>
+  </footer>
+</body>
+
+</html>
