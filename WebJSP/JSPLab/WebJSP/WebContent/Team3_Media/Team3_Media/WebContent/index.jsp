@@ -9,6 +9,6 @@
 </head>
 <body>
 	
-     <jsp:include page="/Team3_Media/Team3_Media/WebContent/commonmodule/Top.jsp"></jsp:include>
+     <jsp:include page="commonmodule/Top.jsp"></jsp:include>
 </body>
 </html>

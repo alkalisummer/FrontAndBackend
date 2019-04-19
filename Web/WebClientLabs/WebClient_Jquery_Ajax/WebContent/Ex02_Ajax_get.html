@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+ 
+   jQuery.get( url [, data ] [, success ] [, dataType ] )
+   
+   >>javascript
+   >> httpReq.open("GET","Ex03_Company.xml")
+   
+   Method	Description
+$.ajax()	Performs an async AJAX request
+$.ajaxPrefilter()	Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax()
+$.ajaxSetup()	Sets the default values for future AJAX requests
+$.ajaxTransport()	Creates an object that handles the actual transmission of Ajax data
+$.get()	Loads data from a server using an AJAX HTTP GET request
+$.getJSON()	Loads JSON-encoded data from a server using a HTTP GET request
+$.parseJSON()	Deprecated in version 3.0, use JSON.parse() instead. Takes a well-formed JSON string and returns the resulting JavaScript value
+$.getScript()	Loads (and executes) a JavaScript from a server using an AJAX HTTP GET request
+$.param()	Creates a serialized representation of an array or object (can be used as URL query string for AJAX requests)
+$.post()	Loads data from a server using an AJAX HTTP POST request
+ajaxComplete()	Specifies a function to run when the AJAX request completes
+ajaxError()	Specifies a function to run when the AJAX request completes with an error
+ajaxSend()	Specifies a function to run before the AJAX request is sent
+ajaxStart()	Specifies a function to run when the first AJAX request begins
+ajaxStop()	Specifies a function to run when all AJAX requests have completed
+ajaxSuccess()	Specifies a function to run when an AJAX request completes successfully
+load()	Loads data from a server and puts the returned data into the selected element
+serialize()	Encodes a set of form elements as a string for submission
+serializeArray()	Encodes a set of form elements as an array of names and values
+ 
+ */
+
+	$(function(){
+		 $('#btn').click(function(){
+			$.get("Ex03_Company.xml",function(data){
+				console.log(data);
+				//개발자 마음(데이터가공 :화면에 출력 ,, 팝업 .. )
+				
+				$('#display').empty();//자식요소 제거 
+				 console.log($(data).find('Company'));
+				//find 함수 결과 리턴값 : 배열객체 [Company, Company]
+				
+				$(data).find('Company').each(function(data){
+					     // $('#display').append($(element).text()+"<br>");
+					     var entry =$(this);
+					    var html = "<div>"+entry.attr('CompanyType')+"</div>";
+					    console.log(html);
+					   html+= "<div>"+entry.find('CompanyName').text()+"<div><br>";
+					   html+= "<div>"+entry.find('CompanyNumber').text()+"<div><br>";
+					   html+= "<div>"+entry.find('CompanyAddress').text()+"<div><br>";
+					   html+= "<div>"+entry.find('Name').text()+"<div><br>";
+					   $('#display').append(html);
+					   
+					   
+					   //실제사용코드 
+					   var companyarraylist = $(data).find('Company');
+					   $.each(companyarraylist)
+					   
+					   console.log(html);
+				});
+			}); 
+		 });
+	});
+	
+
+</script>
+</head>
+<body>
+  <input type = "button" id="btn" value="회사소개">
+  <div id="display" style="background-color: gray">DATA</div>
+</body>
+</html>

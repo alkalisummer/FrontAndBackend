@@ -97,7 +97,7 @@
 </head>
 <body>
 
-<jsp:include page="/Team3_Media/Team3_Media/WebContent/commonmodule/Top.jsp"></jsp:include>
+<jsp:include page="/commonmodule/Top.jsp"></jsp:include>
 <div class = "col-12" > 
 <h1>HTML &nbsp; <img src="../images/youtube.png" style="width:50px; height:50px; margin-bottom:10px" ></img>&nbsp;<b>YouTube</b></h1>
 <hr>
