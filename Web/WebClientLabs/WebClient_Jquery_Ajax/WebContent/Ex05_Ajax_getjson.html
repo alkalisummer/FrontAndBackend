@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#btn .btnload').click(function(){
+		//내부적으로 :dataType :"json" 설정을 가지고 있다.
+		$.getJSON("Ex05_json.json",function(data){
+			
+		    var table = "<table></table>"
+		    	$('#display').append(table);	
+		    $(data).each(function(index,element){
+		        var td= "<tr><td>"+element.num+element.Name+"</td></tr>";
+		       $('#display table').append(td);	
+		    })
+			  
+			
+			
+			console.log(data);
+			// 문제:Table 를 들고 서버에서 받은 데이터를 td태그 안에 넣으세요 
+		});
+	});
+	
+	
+});
+
+</script>
+</head>
+<body>
+ <div id ="btn">
+ 
+   <div class="btnload">JSON DATA LOAD</div>
+   </div>
+ <div id="display"></div>
+</body>
+</html>
