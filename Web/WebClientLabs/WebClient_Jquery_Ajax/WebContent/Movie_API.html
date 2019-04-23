@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
 	$(function(){
 		$('#rating').click(function(){
 			var selected = $('#selectMovie').val();
@@ -18,38 +19,34 @@
 				        	 console.log(data2.data.movies);
 				        	  $.each(data2.data.movies,function(index,obj){
 				        		  console.log(obj.genres);
-				        			 console.log(obj.medium_cover_image);
-				        		
+				        			 console.log(obj.medium_cover_image);			        		
 				        		  $('<img>').attr("src",obj.medium_cover_image).appendTo("#movie");
-				        		
-				        		
-				        				        		
-				        		   
+				        		  $('#movie').append("<br>");
+				        		  $('#movie').append(obj.title);
+				        		  $('#movie').append("<br>");
 				        	  });
 				          }
 				);
 			});
-	
 	});
 	
 	</script>
 </head>
 <body>
-  <h1>Movie Chart</h1>
-  <select id = "selectMovie">
-   <option value="aciton">액션</option>
-   <option value="Thriller">스릴러</option>
-   <option value="Fantasy">판타지</option>
-   <option value ="Romance">로맨스</option>
-   <option value="Horror" >호러</option>
-   <option value="Drama">드라마</option>
-   <option value="Music">뮤직</option>
-  </select>
-  <button id="rating">평점 순</button>
-  <button id="count">조회 순</button><br>
-  <div id="movie">
-  
-  </div>
-  
+	<h1>Movie Chart</h1>
+	<select id="selectMovie">
+		<option value="aciton">액션</option>
+		<option value="Thriller">스릴러</option>
+		<option value="Fantasy">판타지</option>
+		<option value="Romance">로맨스</option>
+		<option value="Horror">호러</option>
+		<option value="Drama">드라마</option>
+		<option value="Music">뮤직</option>
+	</select>
+	<button id="rating">평점 순</button>
+	<button id="count">조회 순</button>
+	<br>
+	<div id="movie"></div>
+
 </body>
 </html>

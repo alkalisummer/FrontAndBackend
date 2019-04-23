@@ -32,7 +32,7 @@
 				    	  dataType:"html",//서버가 클라이언트에게 응답형식 
 				    	  success:function(responsedata){
 				    		 
-				    		  var result = responsedata.trim();
+				    		  var result = responsedata.trim();// 양쪽 공백을 꼭 제거해주기 
 				    		  if(result ==='success'){
 				    			  $('#message').html('<p style="color:green,font-weight:bold">로그인 성공</p>')
 				    			  $('#form1').slideUp()

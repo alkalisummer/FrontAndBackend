@@ -1,0 +1,123 @@
+<!--
+  TEAM_4
+  [API Chart사용하기]-->
+ 
+<!-- 
+    [참고문헌]
+    1.공공데이터 : 일별 박스오피스
+                 KOFIC 영화권입장권통합전산망 오픈API (http://www.kobis.or.kr/kobisopenapi/homepg/main/main.do)
+    2.차트API   : Highcharts(http://www.highcharts.com/) 
+                 Highcharts_ API(http://api.highcharts.com/) 
+ -->
+ 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+        <title>highChart사용하기_주간박스오피스</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+           <script src="https://code.highcharts.com/highcharts.js"></script>
+           <script src="https://code.highcharts.com/modules/exporting.js"></script>
+           <script type="text/javascript">
+               $(function() {
+                   var xCategories = [];  //x축
+                   var Visitors = [];  //일일 관객
+                   var totalVisitors = []; //총 관객
+                   $.getJSON("http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20190420",function(data){
+                     //$.getJSON("movie_chart_sample.json",function(data){
+                       $.each(data.boxOfficeResult.weeklyBoxOfficeList,function(index,obj){
+                         //$.each(data.DATA,function(index,obj){    
+                           //console.log(obj.movieNm,obj.audiCnt);
+                           xCategories.push(obj.movieNm);
+                           Visitors.push(parseInt(obj.audiCnt));
+                           totalVisitors.push(parseInt(obj.audiAcc));                         
+                           
+                       });//each
+                       
+                   $('#highchart').highcharts({
+                       /* chart: {
+                           type:'column' //막대그래프
+                       }, */
+                       
+                        /* chart: {
+                           type: 'pie' //파이차트
+                       }, */
+                       
+                       title : {
+                        text : '주간 박스오피스', //차트의 제목
+                        x : -20
+                    },
+                    subtitle : {
+                        text : 'Source: http://www.kobis.or.kr/', //차트의 부제목
+                        x : -20
+                    },
+                    xAxis : {
+                        categories : xCategories, //x축, 각 막대 그래프의 항목 이름
+                         crosshair: {
+                                width: 3,
+                                color: 'lightgray'
+                            }
+                    },
+                    yAxis : { //y축
+                        min:10000, // 0부터 시작
+                        title : {
+                            text : '관객수(명)' 
+                        },
+                        
+                        crosshair: {
+                            width: 3,
+                            color: 'lightgray'
+                        },
+                        plotLines : [ {
+                            value : 0,
+                            width : 1,
+                            color : '#808080'
+                        } ]
+                    },                    
+                    
+                     tooltip: {
+                           headerFormat: '<span style="font-size:10px">{point.key}</span><table>', //key는 x축 
+                           pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                               '<td style="padding:0"><b>{point.y} 명</b></td></tr>',
+                           footerFormat: '</table>', //{point.y:f}442543,  {point.y}443 543
+                           shared: true, //true면 같은 X축의 데이터 값이 같이 보임  
+                           useHTML: true  //true면 위의 지정한 html 태그 사용
+                     }, 
+                     
+                     /* tooltip : {
+                            valueSuffix : '명'
+                    }, */
+                       plotOptions: { //해당 X축의 블록지정
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                      }, 
+                      legend : { //범례
+                            layout : 'vertical',
+                            align : 'right', // sereis 오른쪽
+                            verticalAlign : 'middle', //sereis 오른쪽 중간
+                            borderWidth : 0 //sereis 테두리
+                        }, 
+                      series : [ { 
+                            name : '당일 관객수',
+                            data : Visitors
+                       }, {
+                            name : '누적 관객수',
+                            data : totalVisitors
+                       } ]                      
+                       
+                   });//highcharts                      
+       
+               }); //getJSON              
+ 
+           });     
+           
+           </script>
+        
+    </head>
+    <body>
+        <div id="highchart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </body>
+</html>
