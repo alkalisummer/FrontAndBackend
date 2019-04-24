@@ -24,6 +24,10 @@
 <br>
 <a href="<%=request.getContextPath()%>/board?cmd=boarddelete">삭제하기 Error</a>
 <br>
-s
+<a href="<%=request.getContextPath()%>/board?cmd=login">페이지 보안(로그인)</a>
+<br>
+<hr>
+<h3>FrontServletController</h3>
+<a href="<%=request.getContextPath()%>/Front.do?cmd=greeting">요청보내기(@WebServlet)</a>
 </body>
 </html>
