@@ -62,6 +62,7 @@
 	</tr>
 
 <%		
+
 	}
 	if(rs != null)try{rs.close();}catch(Exception e){}
 	if(stmt != null)try{stmt.close();}catch(Exception e){}
