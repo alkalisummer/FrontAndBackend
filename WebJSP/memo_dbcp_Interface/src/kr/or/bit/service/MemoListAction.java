@@ -24,9 +24,7 @@ public class MemoListAction implements Action {
 		try {
 			dao = new MemoDao();
 			memolist = dao.selectAll();
-			
 			request.setAttribute("memolist", memolist);
-			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/WEB-INF/memo/memolist.jsp");

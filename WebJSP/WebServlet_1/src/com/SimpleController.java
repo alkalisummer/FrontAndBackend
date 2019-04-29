@@ -1,6 +1,7 @@
 package com;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  
  3. SimpleController 서블릿은 이벤트 기본동작
     (함수가 특정 상황에 맞추어서 자동 호출)
-    [상황]: 클라이언트가 SimpleController 요청을 보냈을때 
+    [상황]: 클라이언트가 SimpleController에게 요청을 보냈을때 
   클라이언트가 전송방식 GET으로 요청이 오면 자동으로 호출되는 함수 : doGet
   클라이언트가 전송방식 POST으로 요청이 오면 자동으로 호출되는 함수: doPost
   
@@ -83,7 +84,7 @@ import javax.servlet.http.HttpServletResponse;
    <servlet_class>com.SimpleController</servlet_class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>a</servlet-name>
+  <servlet-name>simplecontroller</servlet-name>
   <url-pattern>/simple</url-pattern>
   </servlet-mapping>
 </web-app>                                        
@@ -121,7 +122,7 @@ public class SimpleController extends HttpServlet {
                  resultobj="hello world";
                  
 		 }else if(type.equals("date")) {
-			 resultobj= new java.util.Date();
+			 resultobj= new Date();
 		 }else {
 			 resultobj = "invalid type";
 		 }

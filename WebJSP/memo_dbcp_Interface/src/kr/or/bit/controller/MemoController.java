@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.MemoIdCheckService;
 import kr.or.bit.service.MemoListAction;
 import kr.or.bit.service.MemoWriteAction;
 
@@ -42,7 +43,15 @@ public class MemoController extends HttpServlet {
       // 메모를 DB에 넣고 목록을 새로 보여주기
       action = new MemoWriteAction();
       forward = action.execute(request, response);
-    } // id 하기
+    }else if (urlCommand.equals("/MemoId.do")) {// ID 사용유무
+		try {
+			action = new MemoIdCheckService();
+			 forward=action.execute(request, response);
+			System.out.println("forward ID검색하기");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
     
     if (forward != null) {
       if (forward.isRedirect()) {
