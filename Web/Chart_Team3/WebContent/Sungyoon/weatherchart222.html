@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<style>
+
+body, html {
+
+	height: 100%;
+}
+.box {
+	display:flex;
+	background-color:#FCFFC	5;
+	border-radius: 20px;
+	justify-content: center;
+	border : 1px solid black;
+	margin-bottom : 40px;
+	box-shadow: inset 0 0 5px #888;
+	
+}
+
+.container {
+	display:flex;
+	justify-content: center;
+}
+
+
+</style>
+</head>
+<body>
+
+	<div class = "box">
+	<div><h1>날씨</h1></div>
+	</div>
+	<div class = "container">
+	<input type = "button" value = "WEATHER" id = "btn">
+	</div>
+	<script type="text/javascript">
+		var key = "c467a51ad8b7075e645266c97d051df0";
+		var weatheruri = "http://api.openweathermap.org/data/2.5/forecast";
+
+		var tempur = [];
+		var tempur2 = [];
+		var dttxt = [];
+		var split = [];
+		$(function() {
+			
+			$("#btn").on("click", function() {
+				
+				$("#btn").toggle();
+			
+
+			$.ajax({
+				url : weatheruri,
+				type : "get",
+				dataType : "json",
+				data : {
+					appid : key,
+					id : "1835848",
+					units : "metric",
+					cnt : "8"
+
+				},
+				success : function(data) {
+					console.log(data);
+					var list = data.list;
+					console.log(data);
+					$.each(list, function(index, element) {
+						/* console.log(list[index]); */
+						/* console.log(element);
+						console.log(list); */
+						console.log(list[index].dt_txt);
+						/* console.log(element.main.temp_max);
+						console.log(element);
+						console.log(element.main.temp_min); */
+						var tempmax = element.main.temp_max;
+						var tempmin = element.main.temp_min;
+						
+							
+						split = list[index].dt_txt.split(" ");
+						console.log(split);
+						
+						console.log(split[1].substr(0,2));
+						var splittime = split[1].substr(0,2)
+						dttxt.push(splittime);
+						console.log(dttxt);
+						
+						
+						
+						
+						tempur.push(tempmax);
+						tempur2.push(tempmin);
+						console.log(list);
+					});
+
+					var data2 = {
+
+							tooltip: {
+						        backgroundColor: '#FCFFC5'
+						        
+						    },
+
+						chart : {
+							  zoomType: 'x',
+					          panning: true,
+					          panKey: 'shift',
+					          plotBorderColor: '#346691',
+					          plotBorderWidth: 2,
+					          plotBackgroundColor: '#FFFFFF',
+					          plotShadow: true,
+							  borderRadius: 20,
+						      borderWidth: 2,
+							  backgroundColor: {
+						            linearGradient: [0, 0, 500, 500],
+						            stops: [
+						                [0, 'rgb(255, 255, 255)'],
+						                [1, 'rgb(200, 200, 255)']
+						            ]
+						        },
+							type : 'spline'
+						},
+						title : {
+							text : '3Times Max_Temp | Min Temp',
+								 style: {
+							            color: 'black',
+							            fontWeight: 'bold'
+							        }
+						},
+						subtitle: {
+					        text: 'Team Bit3',
+					        style: {
+					            color: 'black',
+					            fontWeight: 'bold'
+					        }
+					    },
+						xAxis : {
+							categories : dttxt
+						},
+						yAxis : {
+							title : {
+								text : 'Temperature (°C)'
+							}
+						},
+						plotOptions : {
+							line : {
+								dataLabels : {
+									enabled : true
+								},
+								enableMouseTracking : false
+							}
+						},
+						
+						
+						
+						series : [ {
+							name : 'Max_Temp',
+							data : tempur
+						}, {
+							name : 'Min_Temp',
+							data : tempur2
+						} ]
+					}
+
+					Highcharts.chart('container', data2);
+
+				}
+
+			}
+
+			)
+			});
+		});
+	</script>
+
+	<div id="container"
+		style="min-width: 310px; height: 650px; margin: 0 auto"></div>
+		
+	
+
+</body>
+
+</html>

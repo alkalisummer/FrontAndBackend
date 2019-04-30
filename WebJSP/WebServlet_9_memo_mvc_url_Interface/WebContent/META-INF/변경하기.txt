@@ -1,0 +1,76 @@
+1. kr.or.bit.action 
+1.1 Action 인터페이스 >> execute(request, response)
+1.2 업무: UI 구성 + 로직 구현 
+     ActionForward >> memberfield >> redirect, path 
+     
+2. kr.or.bit.utils(Project전체에 공통으로 사용되는 함수(static)를 가지고 있는 클래스)
+2.1 페이징 처리하는 모든페이지에서 공통적으로 별도의 클래스 
+2.2 날짜처리, 숫자포맷, 문자 정의 포맷 클래스
+2.3 함수를 만들때 고려 사항(overloading, static 많이 사용)
+
+
+3. kr.or.bit.service 
+3.1 주역할(DAO연동, 암호화처리, 로직에 대한 흐름제어)
+3.2 표준화된 코드 구현(Action) 인터페이스 구현 
+3.3 service >> 업무 >> 회원가입 
+                   >> 회원목록 조회
+                   >> 화장실 갈거야 
+                   
+기존:  controller-> 요청을 받는것(화장실갈거야) + 처리하는 것(위치 알려주는것)    cotroller가 싹다함
+업무를 나누자: cotroller-> 서비스의 요청받는것(화장실 갈거야) 
+           service -> 처리하는것(위치알려주는 것)
+서비스는 요청당 하나 기본 .. 
+고민) 비동기 처리... 별도/ 서비스 안에 넣을거냐 
+
+ex) class boardwrite implements Action{
+     execute()강제 구현
+
+}
+
+memo 프로젝트 
+>> MemoAddService (DB Insert)
+>> MemoListService(DB select)
+>> MemoIdCheckService(비동기 DB selelct)
+
+4. kr.or.bit.controller
+방식의 차이 
+
+A 사람
+요청당 하나의 controller 만들어 사용 (service 만들필요 x)
+요청 + service 
+
+B사람 
+요청에 대한  FrontController 만들어 사용 (한개)
+
+게시판: BoardFrontController(게시판 관련된 모든 요청)
+
+회원: MemberFrontController (회원관련된 모든 요청)
+
+관리자: AdminFrontController (관리자 관련된 모든 요청)
+
+
+>> 한개: FrontMemoController(servlet)
+>> 요청 판단의 방식
+>> command: ?cmd=list
+>> url:/list.do 
+
+요청받고 > 판단 > 요청처리 service 호출 ... 
+
+//UI 제공( 화면만 제공: service 만들 필요 없다.)
+forward = new ActionForward();
+forward.setRedirect(false);
+forward.setPath("/WEB-INF/Register/Register.jsp");
+Ajax 처리하기 
+
+1. 기존의 동기처리와 동일하게 처리하기 (별도의 jsp 파일 만듬 )
+
+2.별도의 servlet을 만들어서 처리하는 방식( 별도의 요청으로 처리)
+
+
+
+
+
+
+
+
+
