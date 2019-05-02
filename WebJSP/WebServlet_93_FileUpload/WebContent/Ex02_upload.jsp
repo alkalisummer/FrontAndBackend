@@ -20,7 +20,7 @@ cos.jar 에서 다중 파일 업로드를 지원하는 객체가 바로 >> Multi
      policy : 파일이름 중복 처리를 위한 인자를 의미한다.  기본값 : 똑같은 파일 덮어쓰기
     
      ***MultipartRequest 객체의 메서드**************************************************
-     getParameterNames() :  폼에서 전송된 파라미터의 타임이 file이 아닌 이름들을 Enumeration 타입으로 리턴한다. 
+     getParameterNames() :  폼에서 전송된 파라미터의 타입이 file이 아닌 이름들을 Enumeration 타입으로 리턴한다. 
      getParameterValues() : 폼에서 전송된 파라미터 값들을 배열로 받아온다. 
      getParameter() : Request객체에 있는 해당 파라미터의 값을 가져온다. 
      getFileNames() : 파일을 여러개 업로드 할 경우 타입이 file인 파라미터 이름들을 Enumeration 타입으로 리턴한다. 
@@ -56,7 +56,7 @@ cos.jar 에서 다중 파일 업로드를 지원하는 객체가 바로 >> Multi
 	String orifilename2="";
 	
 	MultipartRequest multi = new MultipartRequest(
-			request, //기전에 있는  request 객체의 주소값 
+			request, //기존에 있는  request 객체의 주소값 
 			uploadpath, //실 저장 경로 (배포경로)
 			size, //10M
 			"UTF-8",
