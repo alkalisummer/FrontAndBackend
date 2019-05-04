@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	display: flex;
+}
+
+.container {
+	margin: auto;
+	margin-top: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 10px 70px;
+	border-radius: 10px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.ename {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.empno {
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.photo {
+	width: 100px;
+	height: 100px;
+	margin: 20px 0;
+}
+
+.back {
+	border: 1px solid #C62917;
+	border-radius: 5px;
+	color: #C62917;
+	text-decoration: none;
+	width: 130px;
+	padding: 5px 0;
+}
+
+.file {
+	display: none;
+}
+
+.fileSelect {
+	border: 1px solid #C62917;
+	border-radius: 5px;
+	color: #C62917;	
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	width: 130px;
+}
+
+.upload-button {
+	margin: 10px 0;
+	margin-top: 20px;
+	background: none;
+	border: 1px solid #C62917;
+	border-radius: 5px;
+	color: #C62917;	
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	width: 130px;
+	font-size: 1.05em;
+}
+
+.pointer {
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
