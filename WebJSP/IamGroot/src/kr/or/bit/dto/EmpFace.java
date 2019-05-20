@@ -16,5 +16,10 @@ public class EmpFace {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	@Override
+	public String toString() {
+		return "EmpFace [empno=" + empno + ", url=" + url + "]";
+	}
+	
 	
 }

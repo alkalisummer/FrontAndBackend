@@ -79,6 +79,7 @@
           <td><a class = "emplink" href="updatePage.do?empno=${emp.empno}">수정</a></td>
           <td><a class = "emplink" href="delete.do?empno=${emp.empno}">삭제</a></td>
         </tr>
+    
       </c:forEach>
     </tbody>
   </table>
