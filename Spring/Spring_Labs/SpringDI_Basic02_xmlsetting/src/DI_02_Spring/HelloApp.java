@@ -1,4 +1,4 @@
-package DI_2;
+package DI_02_Spring;
 
 public class HelloApp {
 

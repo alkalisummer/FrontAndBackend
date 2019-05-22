@@ -16,7 +16,7 @@ public class HelloApp {
 //		
 //		
 //		
-//		//getbean(service) , getbean(article)
+//		//getbean(service),getbean(article)
 //		service.write(article);
 //		
 		ApplicationContext context = new GenericXmlApplicationContext("classpath:DI_06_Spring/DI_06.xml");
