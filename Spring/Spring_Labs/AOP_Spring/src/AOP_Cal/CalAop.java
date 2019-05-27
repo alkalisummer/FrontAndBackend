@@ -13,7 +13,7 @@ public void pointCut() {
 }
 	
 		
-		@Before("pointCut()") //AOP_Annotation 패키지 안의 모든 결합점
+		@Before("pointCut()") 
 		public void useCalc()
 		{
 			System.out.println("Before : 핵심 기능 전 실행 할 공통 기능 ");
