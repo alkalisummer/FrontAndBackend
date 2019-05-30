@@ -21,11 +21,11 @@
 	UserDao dao = new UserDao();
 	SearchParam sp = new SearchParam();
 	//1. where ename='SMITH'
-	//sp.setEname("SMITH");
+	//sp.setEname("ALLEN");
 	//sp.setDeptno(0);
 	
 	//2. where deptno=10
-    //   sp.setDeptno(10);
+    //    sp.setDeptno(10);
 	
 	//3. select * from emp
 	//   nothing
@@ -33,8 +33,8 @@
 	
     
 	//4. where ename='SMITH' and deptno=10  (null 아니고 0 아닌 경우)
-    //sp.setEname("SMITH");
-    //sp.setDeptno(20);
+    //sp.setEname("ALLEN");
+    //sp.setDeptno(30);
     
     //List<Emp> emp = dao.list(sp);
     
